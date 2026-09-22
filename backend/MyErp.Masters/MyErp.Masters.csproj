@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MyErp.Masters</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Controllers live inside the module, so the module needs the ASP.NET Core
+       shared framework. It is provided by the host at runtime, not shipped here. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyErp.Data\MyErp.Data.csproj" />
+    <ProjectReference Include="..\MyErp.Entities\MyErp.Entities.csproj" />
+    <ProjectReference Include="..\MyErp.Common\MyErp.Common.csproj" />
+  </ItemGroup>
+
+</Project>

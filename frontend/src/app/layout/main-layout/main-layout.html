@@ -1,0 +1,67 @@
+<div class="layout">
+  <header class="layout__bar">
+    <!-- Wrapper carries the class: component styles do not reach inside p-button. -->
+    <div class="layout__menu-button">
+      <p-button
+        icon="pi pi-bars"
+        severity="secondary"
+        [text]="true"
+        ariaLabel="Toggle navigation"
+        (onClick)="toggleMenu()"
+      />
+    </div>
+    <a class="layout__brand" routerLink="/">MyErp</a>
+  </header>
+
+  <div class="layout__progress">
+    @if (isLoading()) {
+      <p-progress-bar mode="indeterminate" [style]="{ height: '3px' }" />
+    }
+  </div>
+
+  <div class="layout__body">
+    <nav class="layout__nav" aria-label="Modules">
+      <ul>
+        @for (item of modules; track item.label) {
+          <li>
+            <a
+              [routerLink]="item.routerLink"
+              routerLinkActive="is-active"
+              class="layout__nav-link"
+            >
+              <i [class]="item.icon"></i>
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <main class="layout__content">
+      <router-outlet />
+    </main>
+  </div>
+
+  <p-drawer
+    [visible]="menuOpen()"
+    (visibleChange)="menuOpen.set($event)"
+    header="Modules"
+    styleClass="layout__drawer"
+  >
+    <ul class="layout__drawer-list">
+      @for (item of modules; track item.label) {
+        <li>
+          <a
+            [routerLink]="item.routerLink"
+            routerLinkActive="is-active"
+            class="layout__nav-link"
+            (click)="closeMenu()"
+          >
+            <i [class]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </p-drawer>
+</div>

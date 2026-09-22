@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# .NET
+# ---------------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+artifacts/
+
+# Local-only configuration and secrets. Never commit a real connection string.
+appsettings.Local.json
+appsettings.*.Local.json
+*.pfx
+
+# ---------------------------------------------------------------------------
+# Node / Angular
+# ---------------------------------------------------------------------------
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-error.log*
+.vite/
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,96 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--p-content-background);
+}
+
+.layout__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--p-content-border-color);
+  background: var(--p-content-background);
+}
+
+.layout__brand {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--p-text-color);
+  text-decoration: none;
+}
+
+.layout__progress {
+  height: 3px;
+}
+
+.layout__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.layout__nav {
+  flex: 0 0 15rem;
+  padding: 1rem 0.75rem;
+  border-right: 1px solid var(--p-content-border-color);
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+.layout__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--p-border-radius-md, 6px);
+  color: var(--p-text-color);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--p-content-hover-background);
+  }
+
+  &.is-active {
+    background: var(--p-highlight-background);
+    color: var(--p-highlight-color);
+  }
+}
+
+.layout__content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.25rem;
+}
+
+.layout__drawer-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* The drawer is the navigation on narrow screens; the sidebar is hidden there. */
+.layout__menu-button {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .layout__nav {
+    display: none;
+  }
+
+  .layout__menu-button {
+    display: inline-flex;
+  }
+}

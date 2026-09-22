@@ -1,0 +1,19 @@
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+
+import { AuthService } from '../auth/auth.service';
+
+/** Attaches the bearer token to API calls, leaving other requests untouched. */
+export const authInterceptor: HttpInterceptorFn = (request, next) => {
+  const token = inject(AuthService).token;
+
+  if (!token || request.headers.has('Authorization')) {
+    return next(request);
+  }
+
+  return next(
+    request.clone({
+      setHeaders: { Authorization: `Bearer ${token}` },
+    }),
+  );
+};
