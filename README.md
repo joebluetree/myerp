@@ -135,3 +135,7 @@ frontend/src/app/features/masters/
 
 Feature services call `ApiService` from `@core`; failures are normalised and
 reported by the HTTP error interceptor, so components handle the success path.
+
+## Version
+
+version-1  base-project
